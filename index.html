@@ -1,0 +1,59 @@
+<html><head>
+    <title>Erstes-JavaScript-Programm</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <script>
+        "use strict";
+        function fGenerator() {
+            var vStart;
+            var vEnde;
+            var vQuadrat;
+            var vQuersumme;
+            var vTeilbar
+            var vAusgabe;
+
+            vStart = parseFloat(document.getElementById("idStart").value);
+            vEnde = parseFloat(document.getElementById("idEnde").value);
+            vTeilbar = parseFloat(document.getElementById("idQuersumme").value);
+
+            vAusgabe = "";
+            vAusgabe = vAusgabe + "<table border=1>";
+			      vAusgabe = vAusgabe + "<tr><th>Zahl</td><th>Quadrat</td><th>Quersumme</td></tr>";
+            
+            while (vStart<=vEnde) {
+              vQuadrat = vStart * vStart;
+              vQuersumme = vStart + vQuadrat;
+              
+              if (vQuersumme % vTeilbar ==0) {
+                
+                vAusgabe = vAusgabe + "<tr><td>" + vStart + "</td><td>" + vQuadrat + "</td><td style=Background-color:green>"+ vQuersumme + "</td></tr>";
+              }
+              else{
+                vAusgabe = vAusgabe + "<tr><td>" + vStart + "</td><td>" + vQuadrat + "</td><td>"+ vQuersumme + "</td></tr>";
+              }
+              
+              vStart++;
+            }
+
+            
+
+            vAusgabe = vAusgabe + "</table>";
+
+            document.getElementById("idAusgabe").innerHTML = vAusgabe;
+            
+        }
+        
+                       
+    </script>
+</head>
+
+<body>
+    <h1>Zahlengenerator</h1>
+    Start: <input id="idStart" type="text" value="1"><br />
+    Ende: <input id="idEnde" type="text" value="5"> <br /><br />
+    Quersumme teilbar durch: <input id="idQuersumme" type="text" value="5"> <br /><br />
+    <button onClick="fGenerator();">Ausgabe</button><br><br>
+    <div id="idAusgabe">Bitte den Button Klicken! Nach dem Klick des Buttons erscheint
+      hier eine Ausgabe.</div>
+
+</body></html>
